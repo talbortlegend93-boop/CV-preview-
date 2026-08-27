@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .resume-container {
+      width: 800px;
+      background: #ffffff;
+      display: flex;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      width: 35%;
+      background-color: #0b2545;
+      color: #ffffff;
+      padding: 30px 20px;
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      object-fit: cover;
+    }
+
+    .sidebar-section {
+      margin-bottom: 25px;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-content {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #d1d5db;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .skill-item {
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: #3b82f6;
+    }
+
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .interests-grid i {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Main Content */
+    .main-content {
+      width: 65%;
+      padding: 30px;
+      color: #333333;
+    }
+
+    .header {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #0b2545;
+      letter-spacing: 2px;
+    }
+
+    .header h1 span {
+      color: #1d4ed8;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #6b7280;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    .header-info {
+      display: flex;
+      gap: 15px;
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    .header-info div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #0b2545;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 12px;
+      border-left: 2px solid #1d4ed8;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1d4ed8;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .item-title {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .badge {
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .item-sub {
+      font-size: 10px;
+      color: #1d4ed8;
+      margin: 2px 0 4px 0;
+    }
+
+    .item-desc {
+      font-size: 10.5px;
+      color: #4b5563;
+      line-height: 1.4;
+      padding-left: 12px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+      font-size: 10.5px;
+      color: #374151;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .declaration-text {
+      font-size: 10px;
+      color: #6b7280;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .declaration-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #1d4ed8;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="profile-section">
+        <!-- Replace src with your profile picture path or image URL -->
+        <img class="profile-photo" src="hope.jpeg" alt="Profile Photo">
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title"><i class="fa-solid fa-user"></i> About Me</div>
+        <p class="sidebar-content">
+          Motivated and detail-oriented individual seeking an entry-level opportunity to utilize my skills and knowledge to contribute to the growth of an organization and build a successful career.
+        </p>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title"><i class="fa-solid fa-phone"></i> Contact</div>
+        <div class="sidebar-content">
+          <div class="contact-item"><i class="fa-solid fa-phone"></i> +234 070-85-45-68-45</div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i>talbortlegend93@gmail.com</div>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i> top starz schoor road by corner stone ozuoba, port harcourt City</div>
+          <div class="contact-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/yourprofile</div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title"><i class="fa-solid fa-gear"></i> Skills</div>
+        <div class="sidebar-content">
+          <div class="skill-item">
+            <span class="skill-name">Communication</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Teamwork</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Problem Solving</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MS Office</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title"><i class="fa-solid fa-globe"></i> Languages</div>
+        <ul class="sidebar-content" style="padding-left: 15px;">
+          <li>English (Fluent)</li>
+          <li>pidgin (Native)</li>
+    
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title"><i class="fa-solid fa-star"></i> Interests</div>
+        <div class="interests-grid sidebar-content">
+          <div><i class="fa-solid fa-book-open"></i>taking risks</div>
+          <div><i class="fa-solid fa-plane"></i>Traveling</div>
+          <div><i class="fa-solid fa-code"></i>Coding</div>
+          <div><i class="fa-solid fa-music"></i>Music</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <h1>Talbort <span>Legend Ayebasogomote </span></h1>
+        <div class="subtitle">website developer</div>
+        <div class="header-info">
+          <div><i class="fa-regular fa-calendar"></i> 14 Jan 2009</div>
+          <div><i class="fa-solid fa-location-dot"></i>port harcourt City,Rivers State</div>
+          <div><i class="fa-regular fa-envelope"></i> talbortlegend93@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+        <div class="timeline-item">
+          <div class="item-header">
+            <span class="item-title">MASTER OF BUSINESS ADMINISTRATION (MBA)</span>
+            <span class="badge">4.5 CGPA</span>
+          </div>
+          <div class="item-sub">University of Rivers state | 2025 – 2028</div>
+        </div>
+        <div class="timeline-item">
+          <div class="item-header">
+            <span class="item-title">HIGHER SECONDARY EDUCATION (12TH)</span>
+            <span class="badge">82%</span>
+          </div>
+          <div class="item-sub">XYZ Senior Secondary School | 2023 – 2025</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fa-solid fa-briefcase"></i> Experience</div>
+        <div class="timeline-item">
+          <div class="item-title">WEBSITE DEVELOPMENT INTERN</div>
+          <div class="item-sub">Creative Studio | Jun 2023 – Aug 2023</div>
+          <ul class="item-desc">
+            <li>Building web apps with React + Node.js</li>
+            <li>Self-taught dev working on portfolio projects.</li>
+            <li>Learning Python & React | Sharing my code journey</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fa-solid fa-folder"></i> Projects</div>
+        <div class="timeline-item">
+          <div class="item-title">BRAND IDENTITY DESIGN</div>
+          <ul class="item-desc">
+            <li>Built E-commerce site + Weather App + To-Do API</li>
+            <li>API Project - REST API for movies, weather, or forex data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fa-solid fa-ribbon"></i> Certifications</div>
+        <div class="cert-grid">
+          <div class="cert-item">• freeCodeCamp - Responsive Web Design - HTML, CSS, Flexbox, Grid</div>
+          <div class="cert-item">• Meta Front-End Developer Professional Certificate - Coursera</div>
+          <div class="cert-item">• freeCodeCamp - JavaScript Algorithms - JS + React basics</div>
+          <div class="cert-item">• Certified Web Developer - UDEMEY</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fa-solid fa-pen"></i> Declaration</div>
+        <p class="declaration-text">I hereby declare that the information provided above is true to the best of my knowledge and belief.</p>
+        <div class="declaration-footer">
+          <span>Talbort Legend Ayebasogomote</span>
+          <span>Date: 26 Aug 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
